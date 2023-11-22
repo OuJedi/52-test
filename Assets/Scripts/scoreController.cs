@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-public class scoreController : MonoBehaviour
+public class ScoreController : MonoBehaviour
 {
     
     private TextMeshProUGUI scoreText;
