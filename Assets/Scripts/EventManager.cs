@@ -11,7 +11,7 @@ public class EventManager : MonoBehaviour
 
     /*
      * Singleton initialisation
-     * */
+     */
     private void Awake()
     {
        if(instance == null)
@@ -34,8 +34,8 @@ public class EventManager : MonoBehaviour
     }
 
     /*
-    * Dispatch OnGetNumber event with the result number
-    */
+     * Dispatch OnGetNumber event with the result number
+     */
     public void GetNumber(int nb)
     {
         OnGetNumber?.Invoke(nb);

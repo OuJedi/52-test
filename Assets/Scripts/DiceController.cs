@@ -5,8 +5,9 @@ using UnityEngine;
 
 public class DiceController : MonoBehaviour
 {
-   
-    private float endAnimtime = 1.5f;
+    public float speed = 1f;
+    public float endAnimTime = 1.5f;
+
     private float rollDelay = 1f;
     private float offsetAngle = 0f;
     private float angleX = .4f;
@@ -16,9 +17,9 @@ public class DiceController : MonoBehaviour
     private bool rotateAccess = false;
     void Start()
     {
-        /*
-         * Get the parent rotation x angle for correcting the children destination angle
-         */
+    /*
+     * Get the parent rotation x angle for correcting the children destination angle
+     */
         offsetAngle = transform.parent.rotation.eulerAngles.x;
 
         EventManager.instance.OnRandomDice += RotateDice;
@@ -40,7 +41,7 @@ public class DiceController : MonoBehaviour
 
         int id = (int) Random.Range(1f, 6.99f);
 
-        Tween tween = transform.DORotate(IdToAngles(id), endAnimtime);
+        Tween tween = transform.DORotate(IdToAngles(id), endAnimTime);
         tween.onComplete = () => {
             if(id == 6)
             {
@@ -86,7 +87,7 @@ public class DiceController : MonoBehaviour
     {
         if (rotateAccess)
         {
-            transform.Rotate(new Vector3(angleX, angleY, angleZ));            
+            transform.Rotate(new Vector3(angleX*speed, angleY * speed, angleZ * speed));            
         }
         
     }
